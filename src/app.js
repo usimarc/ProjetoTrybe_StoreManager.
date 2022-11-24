@@ -14,6 +14,7 @@ app.get('/', (_request, response) => {
 });
 
 app.get('/products/:id', productController.productGetById);
+app.delete('/products/:id', productController.productDeleteById);
 app.put('/products/:id', validateName, productController.productUpdateById);
 app.get('/products', productController.productGetAll);
 app.post('/products', validateName, productController.insertProduct);

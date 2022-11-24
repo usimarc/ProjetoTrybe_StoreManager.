@@ -22,9 +22,15 @@ const insertProduct = async (products) => {
 const productUpdateById = async (id, product) => {
   const hasProduct = await productModel.productGetById(id);
   if (!hasProduct.length) return { type: 404, message: 'Product not found' };
-  console.log(id, product);
   await productModel.productUpdateById(id, product);
   return { type: null, message: { id, ...product } };
+};
+
+const productDeleteById = async (id) => {
+  const hasProduct = await productModel.productGetById(id);
+  if (!hasProduct.length) return { type: 404, message: 'Product not found' };
+  await productModel.productDeleteById(id);
+  return { type: null, message: null };
 };
 
 module.exports = {
@@ -32,4 +38,5 @@ module.exports = {
   productGetById,
   insertProduct,
   productUpdateById,
+  productDeleteById,
 };
