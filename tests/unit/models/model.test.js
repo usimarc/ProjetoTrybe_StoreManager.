@@ -26,13 +26,4 @@ describe('Testa rota product', function () {
       expect(response).to.be.deep.equal(productById);
     });
   });
-
-  // describe('Testa a camada model para a função "insertProduct"', function () {
-  //   it('Busca por todos os produtos cadastrados', async function () {
-  //     sinon.stub(connection, 'execute').resolves(undefined);
-
-  //     const response = await model.insertProduct(productsNew);
-  //     expect(response).to.be.deep.equal(undefined);
-  //   });
-  // });
 });

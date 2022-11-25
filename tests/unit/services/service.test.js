@@ -24,27 +24,19 @@ describe('Testa a service', function () {
 });
 
 describe('Testa sales"', function () {
-
   afterEach(function () { sinon.restore() });
-
   describe('Testa a salesGetById', function () {
     it('venda cadastrada ', async function () {
       const result = { type: null, message: getProductById }
-
       sinon.stub(modelSales, 'salesGetById').resolves(saleId);
       sinon.stub(modelSales, 'salesProductGetById').resolves(productId);
-
       const response = await serviceSales.salesGetById(2);
-
       expect(response).to.be.deep.equal(result);
     });
     it('venda não cadastrada', async function () {
       const result = { type: 404, message: 'Sale not found' }
-
       sinon.stub(modelSales, 'salesGetById').resolves([]);
-
       const response = await serviceSales.salesGetById(8);
-
       expect(response).to.be.deep.equal(result);
     });
   });
