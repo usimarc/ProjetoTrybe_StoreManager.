@@ -32,7 +32,15 @@ const salesGetById = async (id) => {
   return { type: null, message: array };
 };
 
+const insertSales = async (sales) => {
+  const { id } = await salesModel.insertSales();
+  await Promise.all(sales.map(async (sale) => salesModel.insertSalesProduct(id, sale)));
+
+  return { message: id };
+};
+
 module.exports = {
   salesGetAll,
   salesGetById,
+  insertSales,
 };
